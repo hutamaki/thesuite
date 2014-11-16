@@ -1,5 +1,6 @@
 #include "os/String.h"
 #include "os/DateTime.h"
+#include "os/Mutex.h"
 
 #include "core/config/Config.h"
 #include "core/config/XmlFileLoader.h"
@@ -26,6 +27,7 @@ int main(int argc, char **argv)
 	// interpretation of argc, argv
 	try
 	{
+    OS::ScopedMutex mutex;
 		Core::Config::XmlConfigFileLoader config("config.xml");
 	}
 	catch (Core::Config::ConfigException exp)

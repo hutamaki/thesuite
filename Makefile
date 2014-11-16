@@ -2,6 +2,7 @@ CXX = g++
 
 CPPFLAGS = -g -Wall -pedantic -DLINUX 
 LDFLAGS = 
+LDLIBS = -lpthread
 
 INCLUDES = -I. -Ithirdparties
 
@@ -13,8 +14,8 @@ TARGET = thesuite
 
 all: $(TARGET)
 
-thesuite: $(OBJS)
-	$(CXX) $(LDFLAGS) $(OBJS) -o $@
+$(TARGET): $(OBJS)
+	$(CXX) $(LDFLAGS) $(OBJS) -o $@ $(LDLIBS)
 
 %.o: %.cpp
 	$(CXX) $(INCLUDES) $(CPPFLAGS) -c $< -o $@
