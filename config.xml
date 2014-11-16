@@ -1,0 +1,13 @@
+<config version="1">
+  <modules>
+    <plugin path="./binary_pm" />
+    <plugin path="./admin_commander" />
+    <plugin path="./order_config" />
+  </modules>
+
+  <admin>
+    <shutdown time="20:00" />
+  </admin>
+
+  <PM type="binary" /> 
+</config>
