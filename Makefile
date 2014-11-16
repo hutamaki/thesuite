@@ -5,14 +5,13 @@ LDFLAGS =
 
 INCLUDES = -I. -Ithirdparties
 
-SRCS    := $(shell find $(SRCDIR) -name '*.cpp')
-SRCDIRS := $(shell find . -name '*.cpp' -exec dirname {} \; | uniq)
-OBJS=$(subst .cpp,.o,$(SRCS))
+SRCS    = $(shell find $(SRCDIR) -name '*.cpp')
+SRCDIRS = $(shell find . -name '*.cpp' -exec dirname {} \; | uniq)
+OBJS		= $(subst .cpp,.o,$(SRCS))
 
- #SRCS=$(wildcard **/*.cpp) $(wildcard *.cpp) $(wildcard **/*/*.cpp)
-#OBJS=$(subst .cpp,.o,$(SRCS))
+TARGET = thesuite
 
-all: thesuite
+all: $(TARGET)
 
 thesuite: $(OBJS)
 	$(CXX) $(LDFLAGS) $(OBJS) -o $@
@@ -22,3 +21,6 @@ thesuite: $(OBJS)
 
 clean: 
 	rm -f $(OBJS)
+
+cleanall: clean
+	rm -fr $(TARGET)

@@ -4,20 +4,6 @@
 
 #include "tinyxml2/tinyxml2.h"
 
-/*<config version="1">
-  <modules>
-    <plugin>binary_pm</plugin>
-    <plugin>config_commander</plugin>
-    <plugin>order_config</plugin>
-  </modules>
-
-  <admin name="config_commander" />
-	<shutdown time="20:00" />
-  </admin>
-
-  <PM type="binary" /> 
-</config>*/
-
 #define DEFINE_SECTION "config"
 #define DEFINE_SUB_SECTIONS {"modules", "admin"};
 

@@ -90,17 +90,44 @@ namespace OS
     return concat(str_.str);
   }
 
-  String& String::operator+(const char *str_)
+  String& String::operator+=(const char *str_)
   {
     return concat(str_);
   }
 
-  String& String::operator+(const std::string& str_)
+  String& String::operator+=(const std::string& str_)
   {
     return concat(str_.c_str());
   }
 
-  String& String::operator+(const String& str_)
+  String& String::operator+=(const String& str_)
+  {
+    return concat(str_.str);
+  }
+
+  String String::concat(const char *str_) const
+  {
+    size_t str_len = strlen(str_);
+    size_t strlen = length();
+
+    String res(str_len + strlen + 1);
+    strcpy(res.str, str);
+    strcpy(res.str + strlen, str_);
+
+    return res;
+  }
+
+  String String::operator+(const char *str_) const
+  {
+    return concat(str_);
+  }
+
+  String String::operator+(const std::string& str_) const
+  {
+    return concat(str_.c_str());
+  }
+
+  String String::operator+(const String& str_) const
   {
     return concat(str_.str);
   }

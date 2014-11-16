@@ -25,9 +25,15 @@ namespace OS
 			String& concat(const std::string& str_);
 			String& concat(const String& str_);
 
-			String& operator+(const char *str_);
-			String& operator+(const std::string& str_);
-			String& operator+(const String& str_);
+			String& operator+=(const char *str_);
+			String& operator+=(const std::string& str_);
+			String& operator+=(const String& str_);
+
+			String concat(const char *str_) const;
+
+			String operator+(const char *str_) const;
+			String operator+(const std::string& str_) const;
+			String operator+(const String& str_) const;
 
 			friend std::ostream& operator<<(std::ostream& out, const OS::String& str_);
 	private:
